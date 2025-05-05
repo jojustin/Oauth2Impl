@@ -1,5 +1,6 @@
 # Running Server 
 python3 -m venv venv
+
 source venv/bin/activate
 pip install Flask oauthlib requests
 
@@ -7,24 +8,26 @@ python app.py
 
 # Running Client 
 python3 -m venv venv
+
 source venv/bin/activate
 
 pip install requests
+
 python oauth_client.py
 
 
 # Authorizing the user
-Incase to try via the curl (to test) - curl -X POST http://localhost:5050/authorize -d "client_id=client_id_123" -d "redirect_uri=http://localhost:5050/callback" -d "response_type=code" -d "scope=read" -v
+**Incase to try via the curl (to test)** - curl -X POST http://localhost:5050/authorize -d "client_id=client_id_123" -d "redirect_uri=http://localhost:5050/callback" -d "response_type=code" -d "scope=read" -v
 
 
-For checking the sqllite tables - 
+**For checking the sqllite tables -**
 sqlite3 db.sqlite
 .tables
 sqlite> SELECT client_id, client_secret FROM oauth2_client;
 
 ## Setup Phase
 
-Register Client with Authorization Server by calling /register endpoint with:
+**Register Client with Authorization Server by calling /register endpoint with:**
 * client_id (e.g., client_id_123)
 * client_secret (e.g., secret_abc)
 * redirect_uri (e.g., http://localhost:5050/callback)
